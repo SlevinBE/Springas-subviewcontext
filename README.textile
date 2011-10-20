@@ -1,0 +1,34 @@
+h2. How to use the extension
+
+h3. Setup
+
+1. The first thing you need to do is to define an applicationContext for your subview, this 
+applicationContext will contain the objects specific for your subview (like presentationmodels, mediators, models,...).
+
+2. Then you have to instantiate your context in your subview, like this: 
+
+_tabApplicationContext = new RootComponentXMLApplicationContext(this); // this == the subview
+_tabApplicationContext.parent = parentApplicationContext;
+_tabApplicationContext.addConfigLocation("applicationSubViewContext.xml");
+_tabApplicationContext.load();
+
+3. from now on the dependencies of your subview and its subcomponents will be automatically injected when they get instantiated.
+
+h3. Popups
+
+Popups are somewhat special when it comes to injection. Because popups aren't added to the default displayList it's
+impossible for the extension to know when the popup is added to the view. Therefore you have to manually register the popup
+with the applicationContext. Follow these steps to do this:
+
+1. define the AutowireViewRegistrator class as a singleton in your subview applicationContext.
+
+2. define a property of type IViewRegistrator in the class where the popup is created, like this:
+<pre>[Autowired]
+public var viewRegistrator:IViewRegistrator;
+</pre>
+
+3. then register the popup with the viewRegistrator:
+<pre>viewRegistrator.registerView(popup);</pre>
+
+4. from now on your popup (and any new subcomponents) will get autowired.
+
