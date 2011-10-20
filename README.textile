@@ -1,3 +1,8 @@
+h2. Important!
+
+This extension is made for spring-actionscript 1.x. It won't be necessary to use this extension for spring-actionscript 2.0
+since this functionality will be build in.
+
 h2. How to use the extension
 
 h3. Setup
