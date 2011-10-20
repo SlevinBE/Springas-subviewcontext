@@ -1,3 +1,8 @@
+h2. Introduction
+
+An extension for Spring Actionscript 1 which enables you to create a context for a subview of your application, just like it's
+already possible for modules.
+
 h2. Important!
 
 This extension is made for spring-actionscript 1.x. It won't be necessary to use this extension for spring-actionscript 2.0
