@@ -30,8 +30,7 @@ Popups are somewhat special when it comes to injection. Because popups aren't ad
 impossible for the extension to know when the popup is added to the view. Therefore you have to manually register the popup
 with the applicationContext. Follow these steps to do this:
 
-1. define the AutowireViewRegistrator class as a singleton in your subview applicationContext and set the subview applicationContext
-object on the viewRegistrator.
+1. define the AutowireViewRegistrator class as a singleton in your subview applicationContext.
 
 2. define a property of type IViewRegistrator in the class where the popup is created, like this:
 <pre>[Autowired]
